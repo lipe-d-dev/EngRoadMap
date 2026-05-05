@@ -1,0 +1,867 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Roadmap Inglês — Básico-Intermediário</title>
+<link href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=Cabinet+Grotesk:wght@400;500;700;800;900&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --bg: #0e1117;
+    --surface: #161b27;
+    --surface2: #1c2333;
+    --border: #2a3348;
+    --accent: #f7c948;
+    --accent2: #5b8dee;
+    --accent3: #3ecf8e;
+    --accent4: #f26d6d;
+    --text: #e8eaf0;
+    --muted: #6b7694;
+    --muted2: #444f6b;
+  }
+
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+
+  body {
+    background: var(--bg);
+    color: var(--text);
+    font-family: 'Cabinet Grotesk', sans-serif;
+    min-height: 100vh;
+    padding: 2.5rem 1rem 4rem;
+  }
+
+  .container { max-width: 820px; margin: 0 auto; }
+
+  /* Header */
+  header { margin-bottom: 2.5rem; }
+
+  .header-row {
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+    gap: 1rem;
+    flex-wrap: wrap;
+  }
+
+  .eyebrow {
+    font-family: 'DM Mono', monospace;
+    font-size: 0.68rem;
+    color: var(--accent);
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    margin-bottom: 0.4rem;
+  }
+
+  h1 {
+    font-size: clamp(2.2rem, 5vw, 3.2rem);
+    font-weight: 900;
+    line-height: 1.05;
+  }
+
+  h1 em {
+    font-style: normal;
+    color: var(--accent);
+  }
+
+  .pills {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    gap: 0.4rem;
+    padding-top: 0.5rem;
+  }
+
+  .pill {
+    font-family: 'DM Mono', monospace;
+    font-size: 0.65rem;
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 99px;
+    padding: 0.28rem 0.75rem;
+    color: var(--muted);
+    white-space: nowrap;
+  }
+
+  /* Aviso de nível */
+  .level-banner {
+    background: linear-gradient(135deg, rgba(247,201,72,0.12), rgba(91,141,238,0.08));
+    border: 1px solid rgba(247,201,72,0.25);
+    border-radius: 12px;
+    padding: 1rem 1.25rem;
+    margin-bottom: 1.5rem;
+    display: flex;
+    gap: 0.75rem;
+    align-items: flex-start;
+  }
+
+  .level-banner .icon { font-size: 1.2rem; flex-shrink: 0; margin-top: 0.1rem; }
+
+  .level-banner p {
+    font-size: 0.85rem;
+    color: var(--text);
+    line-height: 1.5;
+  }
+
+  .level-banner p strong { color: var(--accent); }
+
+  /* Global progress */
+  .global-progress {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 14px;
+    padding: 1.4rem 1.75rem;
+    margin-bottom: 1.5rem;
+    display: flex;
+    align-items: center;
+    gap: 1.5rem;
+  }
+
+  .gp-num {
+    font-family: 'DM Mono', monospace;
+    font-size: 3rem;
+    font-weight: 500;
+    color: var(--accent);
+    line-height: 1;
+    white-space: nowrap;
+  }
+
+  .gp-right { flex: 1; }
+
+  .gp-label {
+    font-family: 'DM Mono', monospace;
+    font-size: 0.68rem;
+    color: var(--muted);
+    margin-bottom: 0.6rem;
+  }
+
+  .bar {
+    height: 6px;
+    background: var(--border);
+    border-radius: 99px;
+    overflow: hidden;
+  }
+
+  .bar-fill {
+    height: 100%;
+    background: var(--accent);
+    border-radius: 99px;
+    transition: width 0.4s ease;
+    width: 0%;
+  }
+
+  /* Rotina */
+  .daily-box {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 14px;
+    padding: 1.25rem 1.5rem;
+    margin-bottom: 1.5rem;
+  }
+
+  .daily-box h3 {
+    font-family: 'DM Mono', monospace;
+    font-size: 0.68rem;
+    color: var(--muted);
+    text-transform: uppercase;
+    letter-spacing: 0.12em;
+    margin-bottom: 1rem;
+  }
+
+  .daily-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+    gap: 0.6rem;
+  }
+
+  .slot {
+    background: var(--surface2);
+    border-radius: 8px;
+    padding: 0.7rem 0.9rem;
+    border: 1px solid var(--border);
+  }
+
+  .slot .stime {
+    font-family: 'DM Mono', monospace;
+    font-size: 0.62rem;
+    color: var(--muted);
+    margin-bottom: 0.25rem;
+  }
+
+  .slot .sact {
+    font-size: 0.85rem;
+    font-weight: 700;
+  }
+
+  .slot .sdet {
+    font-size: 0.72rem;
+    color: var(--muted);
+    margin-top: 0.1rem;
+  }
+
+  /* Phases */
+  .phase {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 14px;
+    margin-bottom: 1.1rem;
+    overflow: hidden;
+    transition: border-color 0.2s;
+  }
+
+  .phase:hover { border-color: #3a4560; }
+
+  .phase-header {
+    padding: 1.2rem 1.5rem;
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    cursor: pointer;
+    user-select: none;
+  }
+
+  .ph-icon { font-size: 1.4rem; width: 36px; text-align: center; flex-shrink: 0; }
+
+  .ph-info { flex: 1; }
+
+  .ph-title { font-size: 1rem; font-weight: 800; }
+
+  .ph-sub {
+    font-family: 'DM Mono', monospace;
+    font-size: 0.68rem;
+    color: var(--muted);
+    margin-top: 0.1rem;
+  }
+
+  .ph-right {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    gap: 0.35rem;
+  }
+
+  .ph-badge {
+    font-family: 'DM Mono', monospace;
+    font-size: 0.65rem;
+    background: var(--surface2);
+    border: 1px solid var(--border);
+    border-radius: 99px;
+    padding: 0.2rem 0.6rem;
+    color: var(--muted);
+    white-space: nowrap;
+  }
+
+  .ph-chevron {
+    font-size: 0.72rem;
+    color: var(--muted2);
+    transition: transform 0.3s;
+  }
+
+  .phase.open .ph-chevron { transform: rotate(90deg); }
+
+  .ph-bar { height: 3px; background: var(--border); }
+
+  .ph-bar-fill {
+    height: 100%;
+    border-radius: 0 99px 99px 0;
+    transition: width 0.4s ease;
+    width: 0%;
+  }
+
+  .phase-body {
+    display: none;
+    padding: 0.5rem 1.5rem 1.25rem;
+    border-top: 1px solid var(--surface2);
+  }
+
+  .phase.open .phase-body { display: block; }
+
+  .sec-label {
+    font-family: 'DM Mono', monospace;
+    font-size: 0.6rem;
+    color: var(--muted2);
+    text-transform: uppercase;
+    letter-spacing: 0.15em;
+    margin: 1rem 0 0.4rem;
+  }
+
+  /* Items */
+  .item {
+    display: flex;
+    align-items: flex-start;
+    gap: 0.75rem;
+    padding: 0.6rem 0;
+    border-bottom: 1px solid var(--surface2);
+    cursor: pointer;
+    transition: opacity 0.15s;
+  }
+
+  .item:last-child { border-bottom: none; }
+  .item:hover { opacity: 0.85; }
+
+  .item input[type="checkbox"] {
+    appearance: none;
+    width: 17px;
+    height: 17px;
+    min-width: 17px;
+    border: 2px solid var(--border);
+    border-radius: 4px;
+    margin-top: 2px;
+    cursor: pointer;
+    position: relative;
+    transition: all 0.2s;
+    background: transparent;
+    flex-shrink: 0;
+  }
+
+  .item input[type="checkbox"]:checked {
+    background: var(--accent);
+    border-color: var(--accent);
+  }
+
+  .item input[type="checkbox"]:checked::after {
+    content: '✓';
+    position: absolute;
+    top: 50%; left: 50%;
+    transform: translate(-50%, -50%);
+    font-size: 10px;
+    color: #0e1117;
+    font-weight: 900;
+  }
+
+  .item-content { flex: 1; }
+
+  .item-label {
+    font-size: 0.88rem;
+    font-weight: 500;
+    line-height: 1.4;
+    transition: color 0.2s;
+  }
+
+  .item-note {
+    font-family: 'DM Mono', monospace;
+    font-size: 0.7rem;
+    color: var(--muted);
+    margin-top: 0.15rem;
+  }
+
+  .item.checked .item-label {
+    color: var(--muted2);
+    text-decoration: line-through;
+  }
+
+  .item-tag {
+    font-family: 'DM Mono', monospace;
+    font-size: 0.57rem;
+    padding: 0.15rem 0.45rem;
+    border-radius: 4px;
+    white-space: nowrap;
+    margin-top: 3px;
+    flex-shrink: 0;
+  }
+
+  .t-gram  { background: rgba(247,201,72,0.12);  color: var(--accent);  border: 1px solid rgba(247,201,72,0.3); }
+  .t-vocab { background: rgba(91,141,238,0.12);  color: var(--accent2); border: 1px solid rgba(91,141,238,0.3); }
+  .t-listen{ background: rgba(62,207,142,0.12);  color: var(--accent3); border: 1px solid rgba(62,207,142,0.3); }
+  .t-speak { background: rgba(242,109,109,0.12); color: var(--accent4); border: 1px solid rgba(242,109,109,0.3); }
+  .t-read  { background: rgba(150,100,255,0.12); color: #a87bff;        border: 1px solid rgba(150,100,255,0.3); }
+  .t-write { background: rgba(0,188,212,0.12);   color: #26c6da;        border: 1px solid rgba(0,188,212,0.3); }
+  .t-habit { background: rgba(255,152,0,0.12);   color: #ffa726;        border: 1px solid rgba(255,152,0,0.3); }
+
+  .c1 { background: var(--accent); }
+  .c2 { background: var(--accent2); }
+  .c3 { background: var(--accent3); }
+  .c4 { background: var(--accent4); }
+  .c5 { background: #a87bff; }
+  .c6 { background: #26c6da; }
+  .c7 { background: #ffa726; }
+
+  /* Recursos */
+  .resources {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 14px;
+    padding: 1.25rem 1.5rem;
+    margin-top: 1.5rem;
+  }
+
+  .resources h3 {
+    font-family: 'DM Mono', monospace;
+    font-size: 0.68rem;
+    color: var(--muted);
+    text-transform: uppercase;
+    letter-spacing: 0.12em;
+    margin-bottom: 1rem;
+  }
+
+  .res-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(170px, 1fr));
+    gap: 0.6rem;
+  }
+
+  .res-item {
+    background: var(--surface2);
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    padding: 0.65rem 0.85rem;
+  }
+
+  .res-item .rname { font-size: 0.83rem; font-weight: 700; }
+  .res-item .ruse  { font-size: 0.72rem; color: var(--muted); margin-top: 0.1rem; }
+  .res-item .rfree {
+    display: inline-block;
+    font-family: 'DM Mono', monospace;
+    font-size: 0.55rem;
+    color: var(--accent3);
+    border: 1px solid rgba(62,207,142,0.3);
+    border-radius: 4px;
+    padding: 0.05rem 0.3rem;
+    margin-top: 0.3rem;
+  }
+
+  /* Footer */
+  .footer {
+    margin-top: 2rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-top: 1px solid var(--border);
+    padding-top: 1.25rem;
+  }
+
+  .footer p {
+    font-family: 'DM Mono', monospace;
+    font-size: 0.65rem;
+    color: var(--muted2);
+  }
+
+  button.reset {
+    font-family: 'DM Mono', monospace;
+    font-size: 0.65rem;
+    background: transparent;
+    border: 1px solid var(--border);
+    color: var(--muted);
+    padding: 0.45rem 0.9rem;
+    border-radius: 6px;
+    cursor: pointer;
+    transition: all 0.2s;
+  }
+
+  button.reset:hover { border-color: var(--accent4); color: var(--accent4); }
+</style>
+</head>
+<body>
+<div class="container">
+
+  <header>
+    <div class="header-row">
+      <div>
+        <div class="eyebrow">// english.roadmap — básico-intermediário</div>
+        <h1>Do <em>básico</em><br>ao fluente</h1>
+      </div>
+      <div class="pills">
+        <span class="pill">nível: básico-intermediário</span>
+        <span class="pill">30–45 min/dia</span>
+        <span class="pill">duração: ~8 meses</span>
+      </div>
+    </div>
+  </header>
+
+  <div class="level-banner">
+    <div class="icon">💡</div>
+    <p>Neste nível você já entende algumas coisas mas trava muito na hora de falar ou escrever. O foco aqui é <strong>construir base sólida primeiro</strong>, depois acelerar. Consistência de 30 min/dia bate qualquer maratona de fim de semana.</p>
+  </div>
+
+  <div class="global-progress">
+    <div class="gp-num" id="globalCount">0</div>
+    <div class="gp-right">
+      <div class="gp-label" id="globalLabel">0 de 0 itens concluídos • 0%</div>
+      <div class="bar"><div class="bar-fill" id="globalBar"></div></div>
+    </div>
+  </div>
+
+  <!-- Rotina -->
+  <div class="daily-box">
+    <h3>⏱ Rotina diária — 35 min</h3>
+    <div class="daily-grid">
+      <div class="slot">
+        <div class="stime">5 MIN</div>
+        <div class="sact">Revisão Anki</div>
+        <div class="sdet">Flashcards do dia anterior</div>
+      </div>
+      <div class="slot">
+        <div class="stime">10 MIN</div>
+        <div class="sact">Gramática</div>
+        <div class="sdet">1 tópico por semana</div>
+      </div>
+      <div class="slot">
+        <div class="stime">10 MIN</div>
+        <div class="sact">Listening</div>
+        <div class="sdet">Podcast ou vídeo com legenda</div>
+      </div>
+      <div class="slot">
+        <div class="stime">10 MIN</div>
+        <div class="sact">Output</div>
+        <div class="sdet">Escrever ou falar em voz alta</div>
+      </div>
+    </div>
+  </div>
+
+  <div id="phases"></div>
+
+  <!-- Recursos -->
+  <div class="resources">
+    <h3>📦 Recursos — priorizando os gratuitos</h3>
+    <div class="res-grid">
+      <div class="res-item">
+        <div class="rname">Anki</div>
+        <div class="ruse">Flashcards com repetição espaçada</div>
+        <span class="rfree">grátis</span>
+      </div>
+      <div class="res-item">
+        <div class="rname">Duolingo</div>
+        <div class="ruse">Aquecimento diário — não é o suficiente sozinho</div>
+        <span class="rfree">grátis</span>
+      </div>
+      <div class="res-item">
+        <div class="rname">BBC Learning English</div>
+        <div class="ruse">Gramática e vocabulário estruturado</div>
+        <span class="rfree">grátis</span>
+      </div>
+      <div class="res-item">
+        <div class="rname">Language Transfer</div>
+        <div class="ruse">Gramática intuitiva em áudio</div>
+        <span class="rfree">grátis</span>
+      </div>
+      <div class="res-item">
+        <div class="rname">ESL Pod</div>
+        <div class="ruse">Podcast lento, vocabulário do dia a dia</div>
+        <span class="rfree">grátis</span>
+      </div>
+      <div class="res-item">
+        <div class="rname">EnglishClass101</div>
+        <div class="ruse">Vídeos estruturados por nível</div>
+        <span class="rfree">grátis parcial</span>
+      </div>
+      <div class="res-item">
+        <div class="rname">YouTube — Speak English with Mr. Duncan</div>
+        <div class="ruse">Fala lenta, clara, com contexto</div>
+        <span class="rfree">grátis</span>
+      </div>
+      <div class="res-item">
+        <div class="rname">Claude / ChatGPT</div>
+        <div class="ruse">Correção de texto e prática de escrita</div>
+        <span class="rfree">grátis parcial</span>
+      </div>
+      <div class="res-item">
+        <div class="rname">italki</div>
+        <div class="ruse">Aulas com tutor — 1x por semana</div>
+        <div class="ruse" style="color:#f26d6d; font-size:0.65rem;">pago (~$8-15/aula)</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="footer">
+    <p>progresso salvo automaticamente</p>
+    <button class="reset" onclick="resetAll()">↺ resetar tudo</button>
+  </div>
+
+</div>
+
+<script>
+const phases = [
+  {
+    id:'p1', icon:'🔤', color:'c1',
+    title:'Alfabeto, Sons e Pronúncia Base',
+    sub:'Semanas 1–3 • Antes de tudo, o som certo',
+    sections:[
+      {
+        label:'Sons do inglês',
+        items:[
+          {id:'a01', label:'Diferença entre vogais curtas e longas (bit vs beat, pull vs pool)', note:'Maior causa de não ser entendido', tag:'speak'},
+          {id:'a02', label:'Sons que não existem em PT — TH (this/think), W, V', note:'Treinar em voz alta, não só ouvir', tag:'speak'},
+          {id:'a03', label:'Sílaba tônica — stress nas palavras (REcord vs reCORD)', note:'Errar o stress muda o significado', tag:'speak'},
+          {id:'a04', label:'Redução de vogais átonas — o "schwa" (ə)', note:'O som mais comum do inglês — about, teacher, the', tag:'listen'},
+          {id:'a05', label:'Praticar pronúncia com dicionário Merriam-Webster (tem áudio)', note:'Checar a pronúncia ANTES de fixar errado', tag:'speak'},
+        ]
+      },
+      {
+        label:'Primeiros hábitos',
+        items:[
+          {id:'a06', label:'Instalar Anki e criar primeiro deck de palavras', note:'Mínimo 5 palavras novas por dia', tag:'habit'},
+          {id:'a07', label:'Mudar idioma do celular/computador para inglês', note:'Exposição passiva constante — faz diferença', tag:'habit'},
+          {id:'a08', label:'Assistir 1 vídeo curto por dia com legenda em inglês', note:'YouTube, 3-5 min, qualquer tema que goste', tag:'listen'},
+        ]
+      }
+    ]
+  },
+  {
+    id:'p2', icon:'🧱', color:'c2',
+    title:'Gramática Essencial',
+    sub:'Semanas 2–10 • 1 tópico por semana',
+    sections:[
+      {
+        label:'Estrutura básica da frase',
+        items:[
+          {id:'g01', label:'Ordem da frase em inglês — Sujeito + Verbo + Objeto', note:'Diferente do português — "I eat pizza" não "I pizza eat"', tag:'gram'},
+          {id:'g02', label:'To be — am, is, are (presente e passado)', note:'Base de tudo — não pode ter dúvida aqui', tag:'gram'},
+          {id:'g03', label:'Pronomes — I, you, he, she, it, we, they', note:'+ possessivos: my, your, his, her, its, our, their', tag:'gram'},
+          {id:'g04', label:'Artigos — a, an, the (quando usar e quando omitir)', note:'Brasileiro erra muito — vale atenção especial', tag:'gram'},
+        ]
+      },
+      {
+        label:'Verbos',
+        items:[
+          {id:'g05', label:'Simple Present — afirmativa, negativa, interrogativa', note:'Do/Does — "She does not like..." — muito usado', tag:'gram'},
+          {id:'g06', label:'Present Continuous — I am eating, she is running', note:'Ação acontecendo agora', tag:'gram'},
+          {id:'g07', label:'Simple Past — verbos regulares e irregulares mais comuns', note:'Memorizar top 50 verbos irregulares', tag:'gram'},
+          {id:'g08', label:'Future — will e going to (diferença de uso)', note:'"I will help" vs "I am going to study" — contextos diferentes', tag:'gram'},
+          {id:'g09', label:'Present Perfect — have/has + particípio (I have seen)', note:'Confunde muito brasileiro — foco no uso real', tag:'gram'},
+          {id:'g10', label:'Modal verbs básicos — can, could, must, should, would', note:'Permissão, possibilidade, obrigação, conselho', tag:'gram'},
+        ]
+      },
+      {
+        label:'Mais estruturas',
+        items:[
+          {id:'g11', label:'Preposições de tempo — at, on, in', note:'at night, on Monday, in January — decorar pelo uso', tag:'gram'},
+          {id:'g12', label:'Preposições de lugar — at, on, in, under, next to, between', note:'Aplicar descrevendo lugares reais', tag:'gram'},
+          {id:'g13', label:'Questions words — who, what, where, when, why, how', note:'Montar perguntas do zero', tag:'gram'},
+          {id:'g14', label:'Comparativos e superlativos — bigger, the biggest', note:'Adjetivos curtos vs longos (more beautiful)', tag:'gram'},
+          {id:'g15', label:'Condicionais 0 e 1 — If it rains, I will stay home', note:'Situações reais e possíveis', tag:'gram'},
+        ]
+      }
+    ]
+  },
+  {
+    id:'p3', icon:'📝', color:'c3',
+    title:'Vocabulário Estratégico',
+    sub:'Meses 1–4 • Palavras que realmente importam',
+    sections:[
+      {
+        label:'Núcleo de vocabulário',
+        items:[
+          {id:'v01', label:'Top 500 palavras mais usadas do inglês', note:'Cobrem 75% de qualquer conversa — prioridade máxima', tag:'vocab'},
+          {id:'v02', label:'Números, datas, horas — sem hesitar', note:'Praticar falar em voz alta: "quarter past three"', tag:'vocab'},
+          {id:'v03', label:'Cores, família, trabalho, comida, lugares — vocabulário temático', note:'1 tema por semana com 15-20 palavras', tag:'vocab'},
+          {id:'v04', label:'Top 30 phrasal verbs do cotidiano', note:'get up, look for, put on, give up, find out...', tag:'vocab'},
+          {id:'v05', label:'Expressões de concordância/discordância', note:'I agree, I see your point, actually I think...', tag:'vocab'},
+        ]
+      },
+      {
+        label:'Técnicas de fixação',
+        items:[
+          {id:'v06', label:'Aprender palavras em frases, não isoladas', note:'"I need to figure this out" — não só "figure out"', tag:'habit'},
+          {id:'v07', label:'Técnica de imagem mental (memory palace) para palavras difíceis', note:'Criar história visual com a palavra', tag:'habit'},
+          {id:'v08', label:'Revisar Anki todos os dias sem falhar', note:'5 min/dia > 1 hora uma vez por semana', tag:'habit'},
+        ]
+      }
+    ]
+  },
+  {
+    id:'p4', icon:'👂', color:'c4',
+    title:'Listening — Treinar o Ouvido',
+    sub:'Meses 1–5 • Input diário e constante',
+    sections:[
+      {
+        label:'Estratégias de escuta',
+        items:[
+          {id:'l01', label:'Começar com fala lenta — ESL Podcast, BBC 6 Minute English', note:'Não pule para nativo rápido antes da hora', tag:'listen'},
+          {id:'l02', label:'Assistir vídeos curtos com legenda em inglês (não PT)', note:'Treina a leitura e escuta ao mesmo tempo', tag:'listen'},
+          {id:'l03', label:'Shadowing simples — repetir frases curtas junto com o áudio', note:'10 min por dia — foco em ritmo e entonação', tag:'speak'},
+          {id:'l04', label:'Tentar assistir 5 min sem legenda por dia', note:'Mesmo não entendendo tudo — o cérebro se ajusta', tag:'listen'},
+          {id:'l05', label:'Ouvir o mesmo episódio de podcast 2 vezes', note:'Primeira vez geral, segunda vez focando nos detalhes', tag:'listen'},
+        ]
+      },
+      {
+        label:'Conteúdo recomendado para este nível',
+        items:[
+          {id:'l06', label:'BBC 6 Minute English — episódios de 6 min, fala clara', note:'Tem transcript disponível — ótimo para iniciantes', tag:'listen'},
+          {id:'l07', label:'ESL Pod — conversas do dia a dia em velocidade normal-lenta', note:'Episódios com explicação de vocabulário', tag:'listen'},
+          {id:'l08', label:'English with Lucy — YouTube, fala clara e didática', note:'Ótima pronúncia britânica', tag:'listen'},
+          {id:'l09', label:'Cartoons/séries infantis em inglês (Peppa Pig, Friends clips)', note:'Vocabulário simples, fala mais devagar', tag:'listen'},
+        ]
+      }
+    ]
+  },
+  {
+    id:'p5', icon:'🗣️', color:'c5',
+    title:'Fala — Destravar o Speaking',
+    sub:'Meses 2–6 • Falar é uma habilidade separada',
+    sections:[
+      {
+        label:'Prática solo',
+        items:[
+          {id:'s01', label:'Falar em voz alta ao fazer tarefas — descrever o que está fazendo', note:'"I am making coffee. I need to boil the water first."', tag:'speak'},
+          {id:'s02', label:'Shadowing diário com podcast ou série', note:'Copiar o ritmo, a entonação e a pronúncia', tag:'speak'},
+          {id:'s03', label:'Gravar a própria voz e ouvir depois', note:'Identificar erros de pronúncia que não percebe ao falar', tag:'speak'},
+          {id:'s04', label:'Praticar diálogos simples em voz alta (scripted dialogs)', note:'BBC Learning English tem muitos prontos', tag:'speak'},
+          {id:'s05', label:'Falar sobre sua rotina em inglês — 2 min sem parar', note:'"Every day I wake up at 7. I usually..." — treino real', tag:'speak'},
+        ]
+      },
+      {
+        label:'Prática com outras pessoas',
+        items:[
+          {id:'s06', label:'Conversação básica com tutor no italki (1x por semana)', note:'Tutor informal é mais barato que professor e mais eficaz', tag:'speak'},
+          {id:'s07', label:'Participar de grupo de conversação gratuito online', note:'Meetup, Discord, Tandem — prática real sem custo', tag:'speak'},
+          {id:'s08', label:'Tandem App — trocar idioma com nativo', note:'Você ensina português, ele te ensina inglês', tag:'speak'},
+        ]
+      }
+    ]
+  },
+  {
+    id:'p6', icon:'✍️', color:'c6',
+    title:'Escrita — Começar Simples',
+    sub:'Meses 2–5 • Escrever consolida tudo',
+    sections:[
+      {
+        label:'Hábito de escrita',
+        items:[
+          {id:'w01', label:'Escrever 5 frases por dia em inglês — sobre qualquer coisa', note:'Consistência > perfeição. Não traduza do PT.', tag:'write'},
+          {id:'w02', label:'Diário simples em inglês — 3 frases sobre o dia', note:'"Today I studied English for 30 minutes. I learned..."', tag:'write'},
+          {id:'w03', label:'Usar Claude ou ChatGPT para corrigir o que escreve', note:'"Correct my English and explain each error" — feedback real', tag:'write'},
+        ]
+      },
+      {
+        label:'Escrita estruturada',
+        items:[
+          {id:'w04', label:'Estrutura de parágrafo básico — topic sentence + desenvolvimento', note:'1 ideia por parágrafo', tag:'write'},
+          {id:'w05', label:'Conectivos básicos — first, then, however, therefore, in addition', note:'Frases que parecem mais naturais e fluentes', tag:'write'},
+          {id:'w06', label:'Escrever e-mail simples em inglês — informal e formal', note:'Subject, greeting, body, closing — estrutura padrão', tag:'write'},
+          {id:'w07', label:'Descrever imagens em inglês — treino de vocabulário e estrutura', note:'"In the picture I can see..." — exercício clássico', tag:'write'},
+        ]
+      }
+    ]
+  },
+  {
+    id:'p7', icon:'📖', color:'c7',
+    title:'Leitura — Construir Confiança',
+    sub:'Meses 3–6 • Ler sem usar o Google Translate',
+    sections:[
+      {
+        label:'Progressão de leitura',
+        items:[
+          {id:'r01', label:'Graded readers — livros adaptados por nível (A1, A2, B1)', note:'Oxford Bookworms, Cambridge English Readers — começe no A2', tag:'read'},
+          {id:'r02', label:'Notícias simples em inglês — BBC Learning English News', note:'Linguagem mais simples que jornal tradicional', tag:'read'},
+          {id:'r03', label:'Ler a descrição de apps e ferramentas em inglês', note:'Contexto real, vocabulário prático', tag:'read'},
+          {id:'r04', label:'Começar a ler documentação técnica simples em inglês', note:'README de projetos no GitHub — linguagem direta', tag:'read'},
+        ]
+      },
+      {
+        label:'Técnicas',
+        items:[
+          {id:'r05', label:'Parar de usar o Google Translate para CADA palavra', note:'Inferir pelo contexto — habilidade essencial', tag:'habit'},
+          {id:'r06', label:'Anotar palavras que aparecem 3+ vezes sem entender', note:'Essas sim merecem ir pro Anki', tag:'habit'},
+          {id:'r07', label:'Reler o mesmo texto depois de estudar — perceber o quanto evoluiu', note:'Motivação real e consolidação de vocabulário', tag:'habit'},
+        ]
+      }
+    ]
+  }
+];
+
+const tagLabel = {gram:'gramática', vocab:'vocabulário', listen:'escuta', speak:'fala', read:'leitura', write:'escrita', habit:'hábito'};
+
+function loadState() {
+  try { return JSON.parse(localStorage.getItem('english_basic') || '{}'); } catch { return {}; }
+}
+function saveState(s) {
+  try { localStorage.setItem('english_basic', JSON.stringify(s)); } catch {}
+}
+
+let state = loadState();
+
+function build() {
+  const container = document.getElementById('phases');
+  phases.forEach(phase => {
+    const total = phase.sections.reduce((a, s) => a + s.items.length, 0);
+    const el = document.createElement('div');
+    el.className = 'phase open';
+    el.id = phase.id;
+    el.innerHTML = `
+      <div class="phase-header" onclick="togglePhase('${phase.id}')">
+        <div class="ph-icon">${phase.icon}</div>
+        <div class="ph-info">
+          <div class="ph-title">${phase.title}</div>
+          <div class="ph-sub">${phase.sub}</div>
+        </div>
+        <div class="ph-right">
+          <span class="ph-badge" id="${phase.id}-badge">0/${total}</span>
+          <span class="ph-chevron">▶</span>
+        </div>
+      </div>
+      <div class="ph-bar"><div class="ph-bar-fill ${phase.color}" id="${phase.id}-bar"></div></div>
+      <div class="phase-body" id="${phase.id}-body"></div>
+    `;
+    container.appendChild(el);
+
+    const body = document.getElementById(phase.id + '-body');
+    phase.sections.forEach(sec => {
+      const lbl = document.createElement('div');
+      lbl.className = 'sec-label';
+      lbl.textContent = sec.label;
+      body.appendChild(lbl);
+      sec.items.forEach(item => {
+        const div = document.createElement('div');
+        div.className = 'item' + (state[item.id] ? ' checked' : '');
+        div.id = 'item-' + item.id;
+        div.innerHTML = `
+          <input type="checkbox" id="cb-${item.id}" ${state[item.id] ? 'checked' : ''}>
+          <div class="item-content">
+            <div class="item-label">${item.label}</div>
+            ${item.note ? `<div class="item-note">${item.note}</div>` : ''}
+          </div>
+          <span class="item-tag t-${item.tag}">${tagLabel[item.tag]}</span>
+        `;
+        div.onclick = () => toggle(item.id);
+        body.appendChild(div);
+      });
+    });
+  });
+}
+
+function toggle(id) {
+  state[id] = !state[id];
+  saveState(state);
+  document.getElementById('item-' + id)?.classList.toggle('checked', state[id]);
+  const cb = document.getElementById('cb-' + id);
+  if (cb) cb.checked = state[id];
+  updateProgress();
+}
+
+function togglePhase(id) {
+  document.getElementById(id)?.classList.toggle('open');
+}
+
+function updateProgress() {
+  let total = 0, done = 0;
+  phases.forEach(phase => {
+    let pt = 0, pd = 0;
+    phase.sections.forEach(s => s.items.forEach(item => {
+      pt++; total++;
+      if (state[item.id]) { pd++; done++; }
+    }));
+    const pct = pt ? pd / pt * 100 : 0;
+    const bar = document.getElementById(phase.id + '-bar');
+    const badge = document.getElementById(phase.id + '-badge');
+    if (bar) bar.style.width = pct + '%';
+    if (badge) badge.textContent = pd + '/' + pt;
+  });
+  const pct = total ? Math.round(done / total * 100) : 0;
+  document.getElementById('globalCount').textContent = done;
+  document.getElementById('globalLabel').textContent = `${done} de ${total} itens concluídos • ${pct}%`;
+  document.getElementById('globalBar').style.width = pct + '%';
+}
+
+function resetAll() {
+  if (!confirm('Resetar todo o progresso?')) return;
+  state = {};
+  saveState(state);
+  document.querySelectorAll('.item').forEach(el => el.classList.remove('checked'));
+  document.querySelectorAll('input[type=checkbox]').forEach(cb => cb.checked = false);
+  updateProgress();
+}
+
+build();
+updateProgress();
+</script>
+</body>
+</html>
